@@ -1,7 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React from "react"
+import React , {useState} from "react"
 
 const ToDoList = () => {
+    const [todos, setTodos] = useState([]);
+    const [inputValue, setInputValue] = useState([])
+
+    function handleChange(e) {
+        setInputValue(e.target.value);
+    }
   return (
     <div>
         <form>
