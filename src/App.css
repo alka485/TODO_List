@@ -37,3 +37,28 @@ input {
   border-radius: 4px;
   border: 1px solid #ccc;
 }
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+listItem {
+  padding: 10px;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+}
+
+deleteButton {
+  padding: '5px 10px',
+  fontSize: '14px',
+  borderRadius: '4px',
+  border: 'none',
+  backgroundColor: '#FF0000',
+  color: 'white',
+  cursor: 'pointer',
+}

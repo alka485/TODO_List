@@ -26,7 +26,7 @@ const ToDoList = () => {
             <input type="text" value={inputValue} onChange={handleChange}/>
             <button onClick={handleSubmit}>Add Todo</button>
         </form>
-        <ul>
+        <ul className="list">
             {todos.map((todo,index) => (
             <li key={todo}>{todo}
             <button onClick={() => handleDelete(index)}>Delete</button>
