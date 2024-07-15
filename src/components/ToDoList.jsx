@@ -10,7 +10,7 @@ const ToDoList = () => {
     }
 
     function handleSubmit(e) {
-        e.prevent.Default();
+        e.preventDefault();
         setTodos([...todos , inputValue]);
         setInputValue('');
     }
@@ -22,14 +22,18 @@ const ToDoList = () => {
     }
   return (
     <div className="container">
-        <form>
-            <input type="text" value={inputValue} onChange={handleChange}/>
-            <button onClick={handleSubmit}>Add Todo</button>
+        <form onSubmit={handleSubmit}>
+            <input type="text"
+             value={inputValue} 
+             onChange={handleChange}
+             />
+            <button type="submit" >Add Todo</button>
         </form>
         <ul className="list">
             {todos.map((todo,index) => (
-            <li key={todo}>{todo}
-            <button onClick={() => handleDelete(index)}>Delete</button>
+            <li key={index} className="listItem">
+                <p>hi</p>{todo}
+            <button onClick={() => handleDelete(index)} className="deleteButton">Delete</button>
             </li>
             ))}
         </ul>
