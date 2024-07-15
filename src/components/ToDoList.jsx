@@ -6,7 +6,6 @@ const ToDoList = () => {
     const [inputValue, setInputValue] = useState('')
 
     function handleChange(e) {
-        console.log("Input changed", e.target.value);
         setInputValue(e.target.value);
     }
 
@@ -15,8 +14,8 @@ const ToDoList = () => {
         if(inputValue.trim()){
             setTodos([...todos , inputValue]);
             setInputValue('');
-            console.log('New todo added', inputValue);
-            console.log( );
+            //console.log('New todo added', inputValue);
+            
 
         }
         else{
