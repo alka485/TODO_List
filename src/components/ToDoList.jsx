@@ -3,22 +3,32 @@ import React , {useState} from "react"
 
 const ToDoList = () => {
     const [todos, setTodos] = useState([]);
-    const [inputValue, setInputValue] = useState([])
+    const [inputValue, setInputValue] = useState('')
 
     function handleChange(e) {
+        console.log("Input changed", e.target.value);
         setInputValue(e.target.value);
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        setTodos([...todos , inputValue]);
-        setInputValue('');
+        if(inputValue.trim()){
+            setTodos([...todos , inputValue]);
+            setInputValue('');
+            console.log('New todo added', inputValue);
+            console.log( );
+
+        }
+        else{
+            console.log("Input is empty, todo not added");
+        }
     }
 
     function handleDelete(index) {
         const newTodos = [...todos];
         newTodos.splice(index,1);
         setTodos(newTodos);
+        console.log("todo deleted" , index);
     }
   return (
     <div className="container">
@@ -32,7 +42,7 @@ const ToDoList = () => {
         <ul className="list">
             {todos.map((todo,index) => (
             <li key={index} className="listItem">
-                <p>hi</p>{todo}
+                <p>{todo}</p>
             <button onClick={() => handleDelete(index)} className="deleteButton">Delete</button>
             </li>
             ))}
