@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: white;
+  background-color: #f9f9f9;
 }
 
 .container {
@@ -11,14 +11,20 @@
   flex-direction: column;
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
 }
 
-form {
+.todo-form {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
   
 }
 
-button {
+.todo-button {
   padding: 10px 20px ;
   font-size: 16px;
   border-radius: 4px;
@@ -27,8 +33,16 @@ button {
   color: white;
   cursor: pointer;
   margin-right: 100px;
+  transition: background-color 0.3s ease;
 }
-
+.todo-button:hover{
+  background-color: #0056b3;
+}
+.message {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color:#28a745;
+}
 input {
   padding: 10px;
   font-size: 16px;
@@ -38,9 +52,13 @@ input {
   border: 1px solid #ccc;
 }
 
+
+
 .list {
   list-style: none;
   padding: 0;
+  width: 100%;
+  max-width: 500px;
 }
 
 .listItem {
@@ -50,8 +68,16 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
-  color:black
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+  color: #007BFF
+  
+}
+
+.listItem:hover {
+  background-color: #f1f1f1;
 }
 
 .deleteButton {
@@ -62,4 +88,9 @@ input {
   background-color: #FF0000;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s ease ;
+}
+
+.deleteButton:hover {
+  background-color: #cc0000;
 }

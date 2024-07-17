@@ -34,7 +34,7 @@ const ToDoList = () => {
     }
   return (
     <div className="container">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="todo-form">
             <input type="text"
              value={inputValue} 
              onChange={handleChange}
