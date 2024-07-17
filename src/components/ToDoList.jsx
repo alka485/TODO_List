@@ -3,7 +3,8 @@ import React , {useState} from "react"
 
 const ToDoList = () => {
     const [todos, setTodos] = useState([]);
-    const [inputValue, setInputValue] = useState('')
+    const [inputValue, setInputValue] = useState('');
+    const [message, setMessage] = useState('');
 
     function handleChange(e) {
         setInputValue(e.target.value);
@@ -14,12 +15,13 @@ const ToDoList = () => {
         if(inputValue.trim()){
             setTodos([...todos , inputValue]);
             setInputValue('');
+            setMessage('New todo added!');
+            setTimeout(()=> setMessage(''),2000); // clear message after 2 sec
             //console.log('New todo added', inputValue);
-            
-
         }
         else{
-            console.log("Input is empty, todo not added");
+            setMessage("Input is empty, todo not added");
+            setTimeout(() => setMessage(''),2000); // clear message 
         }
     }
 
@@ -27,7 +29,8 @@ const ToDoList = () => {
         const newTodos = [...todos];
         newTodos.splice(index,1);
         setTodos(newTodos);
-        console.log("todo deleted" , index);
+        setMessage("todo deleted!");
+        setTimeout(()=> setMessage(''), 2000);
     }
   return (
     <div className="container">
@@ -35,9 +38,12 @@ const ToDoList = () => {
             <input type="text"
              value={inputValue} 
              onChange={handleChange}
+             placeholder="Add a new ToDO"
+             className="todo-input"
              />
-            <button type="submit" >Add Todo</button>
+            <button type="submit" className="todo-button">Add Todo</button>
         </form>
+        {message && <p className="message">{message}</p>}
         <ul className="list">
             {todos.map((todo,index) => (
             <li key={index} className="listItem">
